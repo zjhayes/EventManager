@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="person")
-public class Person 
+public class Person implements Comparable<Person>
 {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -60,5 +60,11 @@ public class Person
 	public void setLastName(String lastName)
 	{
 		this.lastName = lastName;
+	}
+
+	@Override
+	public int compareTo(Person comparePerson)
+	{
+		return this.getLastName().compareTo(comparePerson.getLastName());
 	}
 }
