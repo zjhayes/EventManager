@@ -63,11 +63,10 @@ public class EventHelper
 		em.getTransaction().begin();
 		
 		em.merge(toEdit);
-		em.getTransaction();
+		em.getTransaction().commit();
 		em.close();
 	}
 	
-	// TODO Will need to convert DateTime to Date
 	public List<Event> searchForEventByDate(DateTime date)
 	{
 		EntityManager em = emfactory.createEntityManager();

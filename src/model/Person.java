@@ -20,12 +20,12 @@ public class Person
 	@Column(name="LAST_NAME")
 	private String lastName;
 	
-	Person() 
+	public Person() 
 	{
 		super();
 	}
 	
-	Person(String firstName, String lastName)
+	public Person(String firstName, String lastName)
 	{
 		super();
 		this.firstName = firstName;

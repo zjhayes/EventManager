@@ -1,5 +1,7 @@
 package model;
 
+import java.time.LocalDate;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.eclipse.persistence.jpa.jpql.parser.DateTime;
 
 @Entity
 @Table(name = "events")
@@ -23,27 +24,22 @@ public class Event
 	@Column(name="EVENT_NAME")
 	private String name;
 	@Column(name="EVENT_TIME")
-	private DateTime time;
+	private LocalDate time;
 	@ManyToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name="EMPLOYEE_ID")
 	private Person host;
 	
-	Event() 
+	public Event() 
 	{
 		super();
 	}
 	
-	Event(String name, DateTime time, Person host) 
+	public Event(String name, LocalDate time, Person host) 
 	{
 		super();
 		this.name = name;
 		this.time = time;
 		this.host = host;
-	}
-	
-	public String returnEventDetails() 
-	{
-		return name + " | " + time + " | "; //+ host.getName();
 	}
 
 	public int getId()
@@ -66,12 +62,12 @@ public class Event
 		this.name = name;
 	}
 
-	public DateTime getTime()
+	public LocalDate getTime()
 	{
 		return time;
 	}
 
-	public void setTime(DateTime time)
+	public void setTime(LocalDate time)
 	{
 		this.time = time;
 	}
@@ -86,4 +82,8 @@ public class Event
 		this.host = host;
 	}
 	
+	public String returnEventDetails() 
+	{
+		return name + " | " + time + " | " + host.getFirstName() + " " + host.getLastName();
+	}
 }

@@ -43,7 +43,7 @@ public class PersonHelper
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
 		
-		TypedQuery<Person> typedQuery = em.createQuery("SELECT p FROM Person p WHERE p.employee_id = :selectedId", Person.class);
+		TypedQuery<Person> typedQuery = em.createQuery("SELECT p FROM Person p WHERE p.id = :selectedId", Person.class);
 		typedQuery.setParameter("selectedId", ToDelete.getId());	
 		typedQuery.setMaxResults(1);
 		
@@ -60,7 +60,7 @@ public class PersonHelper
 		em.getTransaction().begin();
 		
 		em.merge(toEdit);
-		em.getTransaction();
+		em.getTransaction().commit();
 		em.close();
 	}
 	
