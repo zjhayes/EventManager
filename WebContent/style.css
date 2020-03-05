@@ -1,1 +1,42 @@
 @charset "UTF-8";
+
+body {
+	background-color: white;
+	font-family: sans-serif;
+	margin-left: 20%;
+	margin-right: 20%;
+	margin-top: 5%;
+}
+
+h1 {
+  color: #9F3548;
+}
+
+em {
+	font-size: .5em;
+}
+
+form {
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+}
+
+table {
+	padding-bottom: 20px
+}
+
+input[type=submit] {
+	background-color: #9F3548;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 20px;
+}
+
+input[type=submit]:hover {
+	background-color: #872E3E;
+}

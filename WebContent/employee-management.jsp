@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="style.css">
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="style.css">
 <title>Manage Employees</title>
 </head>
 <body>
