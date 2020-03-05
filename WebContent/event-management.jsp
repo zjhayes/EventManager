@@ -13,8 +13,8 @@
 <form method="post" action="eventNavigationServlet">
 <table>
 <c:forEach items="${requestScope.totalEvents}" var="currentEvents">
-	<tr class="container">
-		<td><input type="radio" name="id" value="${currentEvents.id}"><span class="checkmark"></span></td>
+	<tr>
+		<td><input type="radio" name="id" value="${currentEvents.id}"></td>
 		<td><h2>${currentEvents.name}</h2></td>
 	</tr>
 	<tr><td colspan = "10">Event Date: ${currentEvents.getEventDate()}</td></tr>
