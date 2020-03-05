@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "events")
-public class Event 
+public class Event implements Comparable<Event>
 {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -23,8 +23,8 @@ public class Event
 	private int id;
 	@Column(name="EVENT_NAME")
 	private String name;
-	@Column(name="EVENT_TIME")
-	private LocalDate time;
+	@Column(name="EVENT_DATE")
+	private LocalDate EventDate;
 	@ManyToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name="EMPLOYEE_ID")
 	private Person host;
@@ -34,11 +34,11 @@ public class Event
 		super();
 	}
 	
-	public Event(String name, LocalDate time, Person host) 
+	public Event(String name, LocalDate EventDate, Person host) 
 	{
 		super();
 		this.name = name;
-		this.time = time;
+		this.EventDate = EventDate;
 		this.host = host;
 	}
 
@@ -62,14 +62,14 @@ public class Event
 		this.name = name;
 	}
 
-	public LocalDate getTime()
+	public LocalDate getEventDate()
 	{
-		return time;
+		return EventDate;
 	}
 
-	public void setTime(LocalDate time)
+	public void setEventDate(LocalDate EventDate)
 	{
-		this.time = time;
+		this.EventDate = EventDate;
 	}
 
 	public Person getHost()
@@ -84,6 +84,12 @@ public class Event
 	
 	public String returnEventDetails() 
 	{
-		return name + " | " + time + " | " + host.getFirstName() + " " + host.getLastName();
+		return name + " | " + EventDate + " | " + host.getFirstName() + " " + host.getLastName();
+	}
+	
+	@Override
+	public int compareTo(Event compareEvent)
+	{
+		return this.getEventDate().compareTo(compareEvent.getEventDate());
 	}
 }
