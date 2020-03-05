@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +14,6 @@
 		Last Name: <input type="text" name="lastName"><br/>
 		<input type="submit" value="Add Employee">
 	</form><br/>
-	<a href="viewEmployeeServlet">Return to Employee Management</a>
+	<a href="viewEmployeesServlet">Return to Employee Management</a>
 </body>
 </html>

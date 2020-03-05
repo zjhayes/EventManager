@@ -28,8 +28,8 @@ public class EventHelper
 	public List<Event> showAllEvents()
 	{
 		EntityManager em = emfactory.createEntityManager();
-		List<Event> allPeople = em.createQuery("SELECT p FROM Event p").getResultList();
-		return allPeople;
+		List<Event> allEvents = em.createQuery("SELECT p FROM Event p").getResultList();
+		return allEvents;
 	}
 	
 	public Event searchForEventById(int id) 
@@ -46,7 +46,7 @@ public class EventHelper
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
 		
-		TypedQuery<Event> typedQuery = em.createQuery("SELECT p FROM Event p WHERE p.event_list = :selectedId", Event.class);
+		TypedQuery<Event> typedQuery = em.createQuery("SELECT p FROM Event p WHERE p.id = :selectedId", Event.class);
 		typedQuery.setParameter("selectedId", ToDelete.getId());	
 		typedQuery.setMaxResults(1);
 		

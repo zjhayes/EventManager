@@ -30,5 +30,6 @@
 	</form>
 	<br>
 	<a href="index.html">Return Home</a>
+	<a href="viewEventServlet">View Events</a>
 </body>
 </html>
